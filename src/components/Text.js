@@ -20,6 +20,13 @@ export default function Texts(props) {
     props.showalert("Text has been cleared", "Success");
   };
 
+  const speech = () =>{
+    const synth = window.speechSynthesis;
+    const word = new.SpeechSynthesisUtterance(Text);
+    synth.speak(word);
+    props.showalert("I have spoken", "Success");
+  }
+  
   const handleSyllable = () => {
     let text = Text;
     let alpha = 0;
@@ -113,6 +120,14 @@ export default function Texts(props) {
           onClick={handleSyllable}
         >
           Check syllable
+        </button>
+
+              <button
+          type="button"
+          className="btn btn-outline-primary mx-2 my-2"
+          onClick={speech}
+        >
+          Speak
         </button>
       </div>
 
